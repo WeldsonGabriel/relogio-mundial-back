@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: relogio_db
+      POSTGRES_USER: relogio_user
+      POSTGRES_PASSWORD: relogio_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./demo/demo
+      dockerfile: Dockerfile
+    container_name: spring_backend
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/relogio_db
+      SPRING_DATASOURCE_USERNAME: relogio_user
+      SPRING_DATASOURCE_PASSWORD: relogio_pass
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:

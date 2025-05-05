@@ -10,5 +10,5 @@ class WorldTimeController(
     private val worldTimeService: WorldTimeService
 ) {
     @GetMapping("/api/world-time")
-    fun getWorldTimes(): List<WorldTimeResponse> = worldTimeService.fetchWorldTimes()
+    fun getWorldTimes(): List<WorldTimeResponse> = worldTimeService.fetchWorldTimes() 
 }

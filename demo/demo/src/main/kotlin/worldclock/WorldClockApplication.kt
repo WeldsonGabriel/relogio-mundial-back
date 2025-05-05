@@ -8,4 +8,4 @@ class WorldClockApplication
 
 fun main(args: Array<String>) {
 	runApplication<WorldClockApplication>(*args)
-}
+} 

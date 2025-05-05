@@ -1,4 +1,4 @@
-package com.example.worldclock.controller
+package worldclock.controller
 
 import com.example.worldclock.dto.WorldTimeResponse
 import com.example.worldclock.service.WorldTimeService
